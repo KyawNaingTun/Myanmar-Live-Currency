@@ -18,6 +18,8 @@ angular.module('CurrecyApp', [])
                     $scope.cLoading = false;
                     $scope.currency = data;
                     $scope.total = data.rates;
+	        // Start the call per 2second
+	        $timeout(getCurrency, 2000);
                 })
                 .error(function(data){
                     console.log(data);
@@ -27,8 +29,7 @@ angular.module('CurrecyApp', [])
                 // Start the call per 2second
                 $timeout(getCurrency, 2000);
         };
-        // Start the call per 2second
-        $timeout(getCurrency, 2000);
+       
 
         $scope.clock = "loading clock..."; // initialise the time variable
         $scope.timer = "12:00:00";// default currency timer
