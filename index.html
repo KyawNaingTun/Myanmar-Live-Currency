@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="CurrecyApp">
+<head>
+	<title>Myanmar Currency</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+
+	<!-- Include angular.js-->
+    <script src="js/angular.min.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body ng-controller="MainController">
+	<div class="section-colored text-center">
+
+      	<div class="container">
+
+	        <div class="row">
+	          	<div class="col-lg-12">
+	            	<h2>Myanmar Live Currency</h2>
+	          	</div>
+	        </div><!-- /.row -->
+
+      	</div><!-- /.container -->
+
+	</div><hr>
+	<div class="container">
+		
+        <div class="col-md-12">
+            <div class="text-center">
+                <button class="btn btn-lg btn-success"><h3>{{ clock }}</h3></button>
+            </div>         
+        </div>
+        
+        <hr>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#No</th>
+                    <th>Flag</th>
+                    <th>Country</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(key, value) in currency.rates">
+                    <td>{{$index+1}}</td>
+                    <td><img src="images/flag/{{key}}.png" class="img-circle img-responsive" width="80px" height="50px"></td>
+                    <td>
+                        <label ng-repeat="cd in codes">
+                            <b ng-show="cd.code == key">{{ cd.name_plural }} ({{cd.symbol_native}})</b>
+                            
+                        </label>
+                    </td>
+                    <td><span class="label label-primary">{{ value }}</span> <b>Kyats</b></td>
+                </tr>
+            </tbody> 
+        </table>
+
+         <!-- Loading (remove the following to stop the loading)-->
+            <!-- <div ng-show="cLoading">
+                <div class="overlay"><span class="loading">currency loading..</span></div>
+            </div> -->
+            <!-- end loading -->
+    </div>
+    <br><br>
+    <div class="footer">
+        <p>
+            Developed By:
+            · <a href="https://github.com/KyawNaingTun/Myanmar-Live-Currency"><b>Kyaw Naing Tun</b></a>
+        </p>
+    </div>
+</body>
+
+</html>

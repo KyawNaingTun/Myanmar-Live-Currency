@@ -1,2 +1,2 @@
 # Myanmar-Live-Currency
-For All People
+Everybody can update.
